@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Kredituak</title>
+    <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='stylesPWS/wide.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (max-width: 480px)'
+		   href='stylesPWS/smartphone.css' />
+		   
+	<script type="text/javascript">
+		function ikusBalioak(){
+			var sAux=""; 
+			var frm=document.getElementById("erregistro"); 
+			for(i=0;i<frm.elements.length;i++){ 
+				sAux +="IZENA: " + frm.elements[i].name+" "; 
+				sAux +="BALIOA: " + frm.elements[i].value+"\n"; 
+			} 
+			alert(sAux); 
+		
+		}
+	</script>
+  </head>
+  <body>
+		<h1 align="center"> FORMULARIOA</h1>
+		<hr/>
+		<br/>
+		<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()">
+			<b> Izena*:</b><input type="text" name="izena">
+			<br/><br/>
+			<b> Eposta*:</b><input type="text" name="posta">
+			<br/><br/>
+			<b> Pasahitza*:</b><input type="password" name="pasahitza">
+			<br/><br/>
+			<b> Telefonoa*:</b><input type="text" name="telefonoa" maxlength="9">
+			<br/><br/>
+			<b> Espezialitatea*:</b>
+			<br/><br/>
+			<select name="espezialitatea">
+			  <option value="Software_ingeniaritza">Software ingeniaritza</option>
+			  <option value="Konputagailuen_ingeniaritza">Konputagailuen ingeniaritza</option>
+			  <option value="Konputazioa">Konputazioa</option>
+			</select>
+			<br/><br/>
+			<b> Interesa duzun teknologiak eta erremintak: </b> 
+			<br/><br/>
+			<textarea rows="10" cols="50" name="interesak"></textarea>
+			<br/><br/>
+			<input type=file size=60 name="fitx1"><br><br>
+			<input type="submit" name="erregistratu" value="Erregistratu">
+			<input type="reset" name="Garbitu" value="Garbitu">
+		</form>
+		<br/>
+		<div align="right">
+			<a href="layout.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
+		</div>
+</body>
+</html>
