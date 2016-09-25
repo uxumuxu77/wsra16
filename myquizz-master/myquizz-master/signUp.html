@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
-	<title>Kredituak</title>
+	<title>SignUp</title>
     <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
 	<link rel='stylesheet' 
 		   type='text/css' 
@@ -12,7 +12,7 @@
 		   type='text/css' 
 		   media='only screen and (max-width: 480px)'
 		   href='stylesPWS/smartphone.css' />
-		   
+	<script type="text/javascript" src="./funtzioak.js"></script>
 	<script type="text/javascript">
 		function ikusBalioak(){
 			var sAux=""; 
@@ -24,13 +24,18 @@
 			alert(sAux); 
 		
 		}
-	</script>
+	
+	
+
+	</script> 
+
+
   </head>
   <body>
 		<h1 align="center"> FORMULARIOA</h1>
 		<hr/>
 		<br/>
-		<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()">
+		<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()" >
 			<b> Izena*:</b><input type="text" name="izena">
 			<br/><br/>
 			<b> Eposta*:</b><input type="text" name="posta">
@@ -45,6 +50,7 @@
 			  <option value="Software_ingeniaritza">Software ingeniaritza</option>
 			  <option value="Konputagailuen_ingeniaritza">Konputagailuen ingeniaritza</option>
 			  <option value="Konputazioa">Konputazioa</option>
+			  <option value="Besterik">Besterik</option>
 			</select>
 			<br/><br/>
 			<b> Interesa duzun teknologiak eta erremintak: </b> 
@@ -52,7 +58,7 @@
 			<textarea rows="10" cols="50" name="interesak"></textarea>
 			<br/><br/>
 			<input type=file size=60 name="fitx1"><br><br>
-			<input type="submit" name="erregistratu" value="Erregistratu">
+			<input type="submit" name="erregistratu" value="Erregistratu" onClick="funtzioei_deia(this.form);">
 			<input type="reset" name="Garbitu" value="Garbitu">
 		</form>
 		<br/>
