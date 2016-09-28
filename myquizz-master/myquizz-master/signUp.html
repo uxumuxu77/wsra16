@@ -24,6 +24,42 @@
 			alert(sAux); 
 		
 		}
+		
+		function erakutsi(value)
+		{
+			if (value=="Besterik")
+			{
+				document.getElementById("testua").style.visibility="visible"; 
+			}
+			else{
+			
+					document.getElementById("testua").style.visibility="hidden";
+					return
+				}
+				 
+		}
+		
+		 function argazkiaErakutsi(irudia) {
+			var files = irudia.files;
+			for (var i = 0; i < files.length; i++) {           
+				var file = files[i];
+				var imageType = /image.*/;     
+				if (!file.type.match(imageType)) {
+					continue;
+				}           
+				var img=document.getElementById("argazki");            
+				img.file = file;    
+				var reader = new FileReader();
+				reader.onload = (function(aImg) { 
+					return function(e) { 
+						aImg.src = e.target.result; 
+					}; 
+				})(img);
+				reader.readAsDataURL(file);
+			}  
+		}
+		
+
 	
 	
 
@@ -46,18 +82,22 @@
 			<br/><br/>
 			<b> Espezialitatea*:</b>
 			<br/><br/>
-			<select name="espezialitatea">
+			<select name="espezialitatea"  id="espezialitatea" onchange="erakutsi(this.value);">
 			  <option value="Software_ingeniaritza">Software ingeniaritza</option>
 			  <option value="Konputagailuen_ingeniaritza">Konputagailuen ingeniaritza</option>
 			  <option value="Konputazioa">Konputazioa</option>
 			  <option value="Besterik">Besterik</option>
 			</select>
 			<br/><br/>
+			<textarea id="testua" rows="1" cols="20"  name="testua" style="visibility:hidden;" ></textarea>
+			<br/><br/>
 			<b> Interesa duzun teknologiak eta erremintak: </b> 
 			<br/><br/>
 			<textarea rows="10" cols="50" name="interesak"></textarea>
 			<br/><br/>
-			<input type=file size=60 name="fitx1"><br><br>
+			<input type=file size=60 name="fitx1" onchange="argazkiaErakutsi(this)" ><br><br>
+			<img id="argazki" width="120" height="100">
+			<br/><br/>
 			<input type="submit" name="erregistratu" value="Erregistratu" onClick="funtzioei_deia(this.form);">
 			<input type="reset" name="Garbitu" value="Garbitu">
 		</form>
