@@ -59,9 +59,7 @@
 			}  
 		}
 		
-
-	
-	
+		
 
 	</script> 
 
@@ -71,8 +69,12 @@
 		<h1 align="center"> FORMULARIOA</h1>
 		<hr/>
 		<br/>
-		<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()" >
+		<form id ="erregistro" name ="erregistro" onSubmit ="return ikusBalioak()" method ="post" action="Enroll.php">
 			<b> Izena*:</b><input type="text" name="izena">
+			<br/><br/>
+			<b> Abizena1*:</b><input type="text" name="abizena1">
+			<br/><br/>
+			<b> Abizena2*:</b><input type="text" name="abizena2">
 			<br/><br/>
 			<b> Eposta*:</b><input type="text" name="posta">
 			<br/><br/>
@@ -98,7 +100,7 @@
 			<input type=file size=60 name="fitx1" onchange="argazkiaErakutsi(this)" ><br><br>
 			<img id="argazki" width="120" height="100">
 			<br/><br/>
-			<input type="submit" name="erregistratu" value="Erregistratu" onClick="funtzioei_deia(this.form);">
+			<input type="submit" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form)">
 			<input type="reset" name="Garbitu" value="Garbitu">
 		</form>
 		<br/>

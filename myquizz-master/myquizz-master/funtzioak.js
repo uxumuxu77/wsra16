@@ -2,13 +2,38 @@
 	
 	function funtzioei_deia(formularioa)
 		{
+			var bet=denabeteta(formularioa);
+			var izen=izena(formularioa);
+			var abi1=abizena1(formularioa);
+			var abi2=abizena2(formularioa);
+			var pas=pasahitza(formularioa);
+			var pos=posta(formularioa);
+			var tel=telefonoa(formularioa);
+			
+			if (bet&&izen&& abi1&& abi2&&pas&&pos&& tel)
+			{
+				formularioa.submit();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+		
+/* 			function funtzioei_deia(formularioa)
+		{
 			denabeteta(formularioa);
+			izena(formularioa);
+			abizena1(formularioa);
+			abizena2(formularioa);
 			pasahitza(formularioa);
 			posta(formularioa);
 			telefonoa(formularioa);
 			formularioa.submit();
 		}
-	
+	 */
 	
 	
 	function denabeteta(formularioa)
@@ -21,6 +46,23 @@
 				alert( "Ez duzu izena idatzi");				
 				return false;			
 			}
+
+			
+			//Abizena1 beteta  dagoen kontrolatu	
+			bal_abi1=formularioa.abizena1.value;
+			if(bal_abi1=="" || bal_abi1.length==0)
+			{
+				alert( "Ez duzu lehenengo abizena idatzi");				
+				return false;			
+			}
+			//Abizena2 beteta  dagoen kontrolatu	
+			bal_abi2=formularioa.abizena2.value;
+			if(bal_abi2=="" || bal_abi2.length==0)
+			{
+				alert( "Ez duzu bigarren abizena idatzi");				
+				return false;			
+			}
+
 			
 			//Posta beteta  dagoen kontrolatu	
 			bal_posta=formularioa.posta.value;
@@ -53,13 +95,74 @@
 				alert( "Ez dituzu interesak idatzi");
 				return false;
 			}
+			else
+			{
+				return true;
+			}
+
 			
 		
 			
 		
 		}
 		
-		 function pasahitza(formularioa)
+		
+		 function izena(formularioa)
+		{
+			// IZenak bi hizki izan behar ditu minimo eta ezin du balore numerikorik izan
+			bal_izen=formularioa.izena.value;
+			var iz=/[A-Z]{1}[a-z]+(\s){0,}/;
+			if(! (iz.test(bal_izen)))
+			{
+				alert( "Izena ez duzu zuzen idatzi,lehen hizkia larriz eta ondorengoa xehez idatzi behar dituzu. ");
+				return false;
+			}
+			else 
+			{
+				return true;
+			}
+		
+		
+		}
+		
+		
+		function abizena1(formularioa)
+		{
+			// Pasahitzak minimo 6 karaktere dituela kontrolatu
+			bal_abi1=formularioa.abizena1.value;
+			var abiz1=/[A-Z]{1}[a-z]+(\s){0,}/;
+			if(! (abiz1.test(bal_abi1)))
+			{
+				alert( "Lehenengo abizena ez duzu zuzen idatzi, lehen hizkia larriz eta ondorengoak xehez idatzi behar dituzu. Abizen konposatua baduzu, formatu berdina jarraitu behar duzu.");
+				return false;
+			}
+			else 
+			{
+				return true;
+			}
+		
+		
+		}
+		
+		function abizena2(formularioa)
+		{
+			// Pasahitzak minimo 6 karaktere dituela kontrolatu
+			bal_abi2=formularioa.abizena2.value;
+			var abiz2=/[A-Z]{1}[a-z]+(\s){0,}/;
+			if(! (abiz2.test(bal_abi2)))
+			{
+				alert( "Bigarren abizena ez duzu zuzen idatzi, lehen hizkia larriz eta ondorengoak xehez idatzi behar dituzu. Abizen konposatua baduzu, formatu berdina jarraitu behar duzu.");
+				return false;
+			}
+			else 
+			{
+				return true;
+			}
+		
+		
+		}
+		
+		function pasahitza(formularioa)
 		{
 			// Pasahitzak minimo 6 karaktere dituela kontrolatu
 			bal_pas=formularioa.pasahitza.value;
@@ -67,6 +170,10 @@
 			{
 				alert( "Pasahitzak 6 karaktere izan behar ditu gutxienez");
 				return false;
+			}
+			else 
+			{
+				return true;
 			}
 		
 		
@@ -76,12 +183,16 @@
 		{
 			bal_posta=formularioa.posta.value;
 			
-				var pos=/[a-z]+\d{3}@ikasle.ehu.e[s|us]/;
+				var pos=/[a-z]+\d{3}@ikasle.ehu.e(s|us)/;
 
 				if (! (pos.test(bal_posta)))
 				{
 					alert( "Postaren formatua gaizki dago: aaa000@ikasle.ehu.(eus/es)");
 					return false;
+				}
+				else 
+				{
+					return true;
 				}
 					
 		}   
@@ -94,4 +205,9 @@
 				alert( "Ez duzu telefonoa ondo idatzi, 9 digitu izan behar ditu");	
 				return false;
 			}
+			else 
+			{
+				return true;
+			}
 		} 
+ 
