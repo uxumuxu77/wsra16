@@ -99,19 +99,15 @@
 			{
 				return true;
 			}
-
-			
-		
-			
 		
 		}
 		
 		
 		 function izena(formularioa)
 		{
-			// IZenak bi hizki izan behar ditu minimo eta ezin du balore numerikorik izan
+			// Izenak bi hizki izan behar ditu minimo eta ezin du balore numerikorik izan
 			bal_izen=formularioa.izena.value;
-			var iz=/[A-Z]{1}[a-z]+(\s){0,}/;
+			var iz=/^([A-ZÑ][a-zñáéíóú]+[\s]*)+$/;
 			if(! (iz.test(bal_izen)))
 			{
 				alert( "Izena ez duzu zuzen idatzi,lehen hizkia larriz eta ondorengoa xehez idatzi behar dituzu. ");
@@ -128,9 +124,9 @@
 		
 		function abizena1(formularioa)
 		{
-			// Pasahitzak minimo 6 karaktere dituela kontrolatu
+		// Abizenak bi hizki izan behar ditu minimo eta ezin du balore numerikorik izan	
 			bal_abi1=formularioa.abizena1.value;
-			var abiz1=/[A-Z]{1}[a-z]+(\s){0,}/;
+			var abiz1=/^([A-ZÑ][a-zñáéíóú]+[\s]*)+$/;
 			if(! (abiz1.test(bal_abi1)))
 			{
 				alert( "Lehenengo abizena ez duzu zuzen idatzi, lehen hizkia larriz eta ondorengoak xehez idatzi behar dituzu. Abizen konposatua baduzu, formatu berdina jarraitu behar duzu.");
@@ -146,9 +142,9 @@
 		
 		function abizena2(formularioa)
 		{
-			// Pasahitzak minimo 6 karaktere dituela kontrolatu
+			// Abizenak bi hizki izan behar ditu minimo eta ezin du balore numerikorik izan
 			bal_abi2=formularioa.abizena2.value;
-			var abiz2=/[A-Z]{1}[a-z]+(\s){0,}/;
+			var abiz2=/^([A-ZÑ][a-zñáéíóú]+[\s]*)+$/;
 			if(! (abiz2.test(bal_abi2)))
 			{
 				alert( "Bigarren abizena ez duzu zuzen idatzi, lehen hizkia larriz eta ondorengoak xehez idatzi behar dituzu. Abizen konposatua baduzu, formatu berdina jarraitu behar duzu.");
