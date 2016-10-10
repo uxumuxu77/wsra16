@@ -2,7 +2,7 @@
 	
 	function funtzioei_deia(formularioa)
 		{
-			var bet=denabeteta(formularioa);
+			/*var bet=denabeteta(formularioa);
 			var izen=izena(formularioa);
 			var abi1=abizena1(formularioa);
 			var abi2=abizena2(formularioa);
@@ -10,7 +10,7 @@
 			var pos=posta(formularioa);
 			var tel=telefonoa(formularioa);
 			
-			if (bet&&izen&& abi1&& abi2&&pas&&pos&& tel)
+			if (bet&&izen&& abi1&& abi2&&pas&&pos&&tel) 
 			{
 				formularioa.submit();
 				return true;
@@ -18,8 +18,8 @@
 			else
 			{
 				return false;
-			}
-
+			}*/
+			formularioa.submit();
 		}
 		
 /* 			function funtzioei_deia(formularioa)
