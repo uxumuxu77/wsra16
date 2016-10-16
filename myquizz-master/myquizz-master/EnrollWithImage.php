@@ -27,7 +27,7 @@
 	$telef=$_POST['telefonoa'];
 	$pasa=$_POST['pasahitza'];
 	
-	if (filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+\d{3}@ikasle.ehu.e(s|us)/"))) === false) 
+	if (filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+\d{3}@ikasle\.ehu\.e(s|us)/"))) === false) 
 	{
 	echo("Emaila ez da zuzena, formatua honako hau da: aaaaaa000@ikasle.ehu.es/eus <a href='signUp.html'>Formulariora itzuli</a>");
 	
