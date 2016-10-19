@@ -179,7 +179,7 @@
 		{
 			bal_posta=formularioa.posta.value;
 			
-				var pos=/[a-z]+\d{3}@ikasle.ehu.e(s|us)/;
+				var pos=/[a-z]+\d{3}@ikasle\.ehu\.e(s|us)/;
 
 				if (! (pos.test(bal_posta)))
 				{

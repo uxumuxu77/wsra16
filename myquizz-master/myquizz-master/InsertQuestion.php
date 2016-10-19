@@ -34,6 +34,7 @@
 		<input type="submit" name="bidali" value="bidali">
 		<input type="reset" name="Garbitu" value="Garbitu">
  </form>
+ <a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
 		
  
   
@@ -62,7 +63,23 @@
 		$galdera = $_POST['galdera'];
 		$erantzuna =$_POST['erantzuna'];
 		$zailtasuna =$_POST['zailtasuna'];
-				
+		$mota="Galdera Txertatu";
+		$ordua= Date('Y-m-d H:i:s');
+		$ip = $_SERVER['REMOTE_ADDR'];
+		
+		$kon=mysqli_query($link,"select KKodea from konexioak where Eposta='$emaila' order by KKodea desc limit 1");
+		$row = mysqli_fetch_array($kon);
+		$konID=intval($row['KKodea']);
+		
+	$sql = "INSERT INTO ekintzak(Kkodea,Eposta,Mota,Ordua,IP) 
+	VALUES ('$konID','$emaila','$mota','$ordua','$ip')";	
+	
+	if (!$link -> query($sql)){
+					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
+				}else{
+					echo 'Ekintza zuzen sartu da';
+				}
+	
 		echo'galdera sartzeko prest dago';
 		echo("$emaila");
 		echo("$galdera");
@@ -76,7 +93,7 @@
 				}else{
 					echo 'Galdera zuzen sartu da';
 				}
-	header("Location:galderak.php");
+	header("Location:Ekintzak.html");
 	}
 	
 	mysqli_close($link);

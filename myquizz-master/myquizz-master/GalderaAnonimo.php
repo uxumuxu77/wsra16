@@ -1,11 +1,9 @@
 <?php
 //$link=new mysqli("localhost","root", "","quiz");
 $link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
-
-		$emaila=$_COOKIE['ErabilLog'];
-		$kon=mysqli_query($link,"select KKodea from konexioak where Eposta='$emaila' order by KKodea desc limit 1");
-		$row = mysqli_fetch_array($kon);
-		$konID=intval($row['KKodea']);
+	
+		$emaila=null;
+		$konID=null;		
 		$mota="Galderak kontsultatu";
 		$ordua= Date('Y-m-d H:i:s');
 		$ip = $_SERVER['REMOTE_ADDR'];
@@ -38,7 +36,8 @@ $link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u65566429
 	
 	echo'</table>';
 	echo'</br></br>';
-	echo'<a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>';
+	echo "Hasierako orrira joan nahi baduzu klikatu hemen:";
+	echo'<a href="layout.html"> <img src="./irudiak/etxea.jpg" height="50px"  width="50px"/></a>';
 	mysqli_free_result($ema);
 	mysqli_close($link);
 ?>

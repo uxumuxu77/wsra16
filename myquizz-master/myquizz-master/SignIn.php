@@ -70,8 +70,15 @@
 			}
 			if($posta2 == $erabilposta && $pas2 ==$pasahitz)
 			{
-				echo("EPOSTA");
-				header("Location:InsertQuestion.php");
+				$ordua= Date('Y-m-d H:i:s');
+				$sql="INSERT INTO konexioak(Eposta,Ordua) 
+				VALUES ('$erabilposta','$ordua')";
+				if (!$link -> query($sql)){
+					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
+				}else{
+					echo 'konexioa zuzen sartu da';
+				}
+				header("Location:Ekintzak.html");
 
 			}
 			else {
