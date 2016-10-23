@@ -1,6 +1,6 @@
 <?php
-//$link=new mysqli("localhost","root", "","quiz");
-$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+$link=new mysqli("localhost","root", "","quiz");
+//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 $ema=mysqli_query($link,"select * from erabiltzaile");
 
 echo'<table border=2 align="center">

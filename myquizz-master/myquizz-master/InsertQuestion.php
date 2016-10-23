@@ -29,12 +29,14 @@
 			<option value="4">4</option>
 			<option value="5">5</option>
 		</select><br><br>
+		<label>Gaia</label></br>
+		<input type ="text" name="gaia" id="gaia" required> <br/><br/>
 
 			
 		<input type="submit" name="bidali" value="bidali">
 		<input type="reset" name="Garbitu" value="Garbitu">
  </form>
- <a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
+
 		
  
   
@@ -43,8 +45,8 @@
 
 <?php
 
-	//$link = new mysqli("localhost","root","","quiz");
-	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+	$link = new mysqli("localhost","root","","quiz");
+	//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 
 	
@@ -55,14 +57,16 @@
 			//exit();
 		} 
 	session_start();
+	$xml= simplexml_load_file('galderak.xml');
 	if(isset($_POST['bidali']))
 		
 	{ /*NONBAITEN BIDALI BEHAR DIRA*/
-	
+		
 		$emaila=$_COOKIE["ErabilLog"];
 		$galdera = $_POST['galdera'];
 		$erantzuna =$_POST['erantzuna'];
 		$zailtasuna =$_POST['zailtasuna'];
+		$gaia=$_POST['gaia'];
 		$mota="Galdera Txertatu";
 		$ordua= Date('Y-m-d H:i:s');
 		$ip = $_SERVER['REMOTE_ADDR'];
@@ -76,24 +80,29 @@
 	
 	if (!$link -> query($sql)){
 					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
-				}else{
-					echo 'Ekintza zuzen sartu da';
 				}
 	
-		echo'galdera sartzeko prest dago';
-		echo("$emaila");
-		echo("$galdera");
-		echo("$erantzuna");
-		echo("$zailtasuna");
-		echo("$galzenbakia");
-	$sql = "INSERT INTO galderak(EgileEposta,Galdera,Erantzuna,ZailMaila) 
-	VALUES ('$emaila','$galdera','$erantzuna','$zailtasuna')";
+	$sql = "INSERT INTO galderak(EgileEposta,Galdera,Erantzuna,ZailMaila,Gaia) 
+	VALUES ('$emaila','$galdera','$erantzuna','$zailtasuna','$gaia')";
 	if (!$link -> query($sql)){
 					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
 				}else{
-					echo 'Galdera zuzen sartu da';
+					echo 'Galdera zuzen sartu da</br>';
+				
+					$assessmentItem= $xml-> addChild('assessmentItem');
+					$assessmentItem-> addAttribute('Zailtasuna',$zailtasuna);
+					$assessmentItem -> addAttribute ('Gaia',$gaia);
+					$itemBody= $assessmentItem ->addChild('itemBody');
+					$itemBody->addChild('Galdera',$galdera);
+					$correctResponse= $assessmentItem-> addChild('correctResponse');
+					$correctResponse-> addChild('Erantzuna',$erantzuna);					
+					$xml-> asXML('galderak.xml');
+					echo "<a href ='seeXMLQuestions.php'>Ikusi galderak(XML)</a><br>";
+					echo "<a href ='Ekintzak.html'>Zer ekintza egin aukeratzeko sakatu hemen.</a><br>";
+				
 				}
-	header("Location:Ekintzak.html");
+	echo' <a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>';			
+	//header("Location:Ekintzak.html");
 	}
 	
 	mysqli_close($link);

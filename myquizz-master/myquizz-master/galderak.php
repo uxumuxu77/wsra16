@@ -1,6 +1,6 @@
 <?php
-//$link=new mysqli("localhost","root", "","quiz");
-$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+$link=new mysqli("localhost","root", "","quiz");
+//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 
 		$emaila=$_COOKIE['ErabilLog'];
 		$kon=mysqli_query($link,"select KKodea from konexioak where Eposta='$emaila' order by KKodea desc limit 1");
