@@ -15,6 +15,10 @@
 		</tr>
 
 <?php
+
+	//$link = new mysqli("localhost","root","","quiz");
+	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+	
 	$xml = simplexml_load_file("galderak.xml");
 	foreach($xml ->children() as $galdera){
 		$zail = $galdera[0]['Zailtasuna'];

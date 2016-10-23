@@ -38,15 +38,15 @@
  </form>
 
 		
- 
+  <a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
   
   </body>
 </html>
 
 <?php
 
-	$link = new mysqli("localhost","root","","quiz");
-	//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+	//$link = new mysqli("localhost","root","","quiz");
+	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 
 	
@@ -100,8 +100,7 @@
 					echo "<a href ='seeXMLQuestions.php'>Ikusi galderak(XML)</a><br>";
 					echo "<a href ='Ekintzak.html'>Zer ekintza egin aukeratzeko sakatu hemen.</a><br>";
 				
-				}
-	echo' <a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>';			
+				}		
 	//header("Location:Ekintzak.html");
 	}
 	
