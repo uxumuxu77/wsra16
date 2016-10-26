@@ -7,7 +7,7 @@
 <body>
 		<hr>
 		<h3>XML Fitxategia </h3>
-	<table id ="taula">
+	<table id ="taula" border="2" align="center">
 		<tr>
 			<th>Galdera</th>
 			<th>Zailtasuna</th>

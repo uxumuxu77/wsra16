@@ -97,11 +97,12 @@
 					$correctResponse= $assessmentItem-> addChild('correctResponse');
 					$correctResponse-> addChild('Erantzuna',$erantzuna);					
 					$xml-> asXML('galderak.xml');
-					echo "<a href ='seeXMLQuestions.php'>Ikusi galderak(XML)</a><br>";
-					echo "<a href ='Ekintzak.html'>Zer ekintza egin aukeratzeko sakatu hemen.</a><br>";
+					echo "<a href ='seeXMLQuestions.php'>Ikusi galderak(XML)</a><br/>";
+					echo "<a href ='galderak.xml'>Ikusi galderak(XML)Transformatua</a><br/>";
+					echo "<a href ='Ekintzak.html'>Zer ekintza egin aukeratzeko sakatu hemen.</a><br/>";
 				
 				}		
-	//header("Location:Ekintzak.html");
+	header("Location:Ekintzak.html");
 	}
 	
 	mysqli_close($link);
