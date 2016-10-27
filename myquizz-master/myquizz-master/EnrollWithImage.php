@@ -1,6 +1,6 @@
 <?php
-	//$link = new mysqli("localhost","root","","quiz");
-	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+	$link = new mysqli("localhost","root","","quiz");
+	//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 
 	
@@ -19,7 +19,7 @@
 			$image= addslashes(file_get_contents($_FILES['fitx1']['tmp_name']));
 			$image_name= addslashes($_FILES['fitx1']['name']);
 		}
-			//$xml= simplexml_load_file('erabiltzaileak.xml');
+
 		
 	$email=$_POST['posta'];
 	$izena=$_POST['izena'];
@@ -50,14 +50,6 @@
 						}
 	else
 	{
-				/*	$erabiltzaileak= $xml-> addChild('erabiltzailea');
-					$erabiltzailea->addAttribute('eposta',$email);
-					$erabiltzailea-> addAttribute('izena',$izena);
-					$erabiltzailea-> addAttribute ('abizena1',$abize1);
-					$erabiltzailea -> addAttribute ('abizena2',$abize2);
-					$erabiltzailea-> addAttribute ('telefonoa',$telef);
-					$xml-> asXML('erabiltzaileak.xml');
-				*/
 	if ($_POST['espezialitatea']=='Besterik')
 	{
 		$sql="INSERT INTO erabiltzaile(Izena,Abizena1,Abizena2,Eposta,Pasahitza,Telefonoa,Espezialitatea,Interesak,Argazkia,ArgazkiMota) 

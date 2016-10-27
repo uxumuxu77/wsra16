@@ -3,6 +3,7 @@
 <xsl:template match="/">
 <html>
 <body>
+	<h3>XML Fitxategia TRANFORMATUA</h3>
 	<table align="center" border="2">
 		<thead>
 			<tr><th>Galdera</th><th>Zailtasuna</th><th>Gaia</th></tr>
