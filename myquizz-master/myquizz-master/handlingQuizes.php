@@ -14,6 +14,7 @@
 		   href='stylesPWS/smartphone.css' />
 		   
 	<script type="text/javascript">
+	
 
 								
 	
@@ -58,10 +59,53 @@
 			var erantzuna = document.getElementById("erantzuna").value;
 			var zailtasuna = document.getElementById("zailtasuna").value;
 			var gaia = document.getElementById("gaia").value;
-			xhttp2.open("GET","galderakSartu.php?galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna+"&gaia="+gaia,true);
-			xhttp2.send(null);
 			
+			  if(galdera=="" || galdera.length==0)
+			{
+				alert( "Ez duzu galdera  idatzi");				
+				return false;			
+			}
+                       else if(erantzuna=="" || erantzuna.length==0)
+			{
+				alert( "Ez duzu erantzuna idatzi");				
+				return false;			
+			}
+                       else if(gaia=="" || gaia.length==0)
+			{
+				alert( "Ez duzu gaia idatzi");				
+				return false;			
+			} else 
+                         {
+			     xhttp2.open("GET","galderakSartu.php?galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna+"&gaia="+gaia,true);
+			     xhttp2.send(null);
+                         }
+
 		}
+		
+				
+		xhttp3=new XMLHttpRequest();
+		
+		xhttp3.onreadystatechange= function()
+		{
+	
+			//alert(xhttp.readyState);
+			if ((xhttp3.readyState==4)&&(xhttp3.status==200))
+			{ 	 
+				document.getElementById("txtHint3").innerHTML=xhttp3.responseText;
+			}
+		}
+		
+
+
+
+		setInterval(function()
+		{
+			xhttp3.open("GET","galderaKopurua.php", true);
+			xhttp3.send(null);
+			
+		},5000);
+				
+		
 	
 	</script>
   </head>
@@ -70,9 +114,9 @@
  <form id ="galdera" name ="galderasortu" method ="post" action="">
 
 		<label>Galdera</label> <br/>
-		<textarea id="gal" name="galdera" rows="4" cols="50" required></textarea><br/><br/>
+		<textarea id="gal" name="galdera" rows="4" cols="50"required></textarea><br/><br/>
 		<label>Erantzuna</label><br/>
-		<input type ="text" name="erantzuna" id="erantzuna" required> <br/><br/>
+		<input type ="text" name="erantzuna" id="erantzuna"required> <br/><br/>
 		<label>Zailtasuna </label>
 		<select name='zailtasuna' id='zailtasuna'>
 			<option value="1">1</option>
@@ -90,10 +134,15 @@
 	    <input type="button" name="GalIkusi" value="Nire galderak ikusi" onClick="erakutsiGalderak()" >
 
  </form>
+	<br/>
+ 	<div id="txtHint3">
+	<p> Zure galderak</p>
+	</div>
+	<br/>
  	<div id="txtHint2">
 	<p> Galdera ondo txertatu den edo ez ikusiko da hemen...</p>
 	</div>
-	</br>
+	<br/>
 	<div id="txtHint">
 	<p> Galderak ikusteko hautatzen duzunean, hemen azalduko zaizkizu galderak.</p>
 	</div>
