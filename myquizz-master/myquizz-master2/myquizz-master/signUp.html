@@ -59,39 +59,6 @@
 			}  
 		}
 		
-					Postaxhttp = new XMLHttpRequest();
-			Postaxhttp.onreadystatechange = function(){
-			if (Postaxhttp.readyState==4 && Postaxhttp.status==200)
-			{document.getElementById("postaDago").innerHTML=Postaxhttp.responseText; 
-			if(Postaxhttp.responseText=="MATRIKULATUA")
-			document.erregistro.erregistratu.disabled=false;
-			
-			}
-			}
-		 
-		 function egiaztatuPos(){
-		 
-			  var pos=document.getElementById("posta").value;
-			  Postaxhttp.open("GET", "egiaztatuPosta.php?posta="+pos, true);
-			  Postaxhttp.send(null);
-			  }
-			  
-                        Pasaxhttp = new XMLHttpRequest();
-			Pasaxhttp.onreadystatechange = function(){
-			if (Pasaxhttp.readyState==4 && Pasaxhttp.status==200)
-			{
-                          document.getElementById("pasaDago").innerHTML=Pasaxhttp.responseText;
-
-                         }
-			}
-		 
-		 function egiaztatuPasa(){
-		 
-			  var pasa=document.getElementById("pasahitza").value;
-			  Pasaxhttp.open("GET", "egiaztatuPasahitza.php?pas="+pasa, true);
-			  Pasaxhttp.send(null);
-			  }
-								
 		
 
 	</script> 
@@ -109,9 +76,9 @@
 			<br/><br/>
 			<b> Abizena2*:</b><input type="text" name="abizena2">
 			<br/><br/>
-			<b> Eposta*:</b><input type="text" name="posta" onchange="egiaztatuPos()" id="posta">
+			<b> Eposta*:</b><input type="text" name="posta">
 			<br/><br/>
-			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza" onchange="egiaztatuPasa()">
+			<b> Pasahitza*:</b><input type="password" name="pasahitza">
 			<br/><br/>
 			<b> Telefonoa*:</b><input type="text" name="telefonoa" maxlength="9">
 			<br/><br/>
@@ -133,18 +100,10 @@
 			<input type=file size=60 id="fitx1" name="fitx1" onchange="argazkiaErakutsi(this)" ><br><br>
 			<img id="argazki" width="120" height="100">
 			<br/><br/>
-			<input type="submit" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form)"id="erregistratu" disabled>
+			<input type="submit" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form)">
 			<input type="reset" name="Garbitu" value="Garbitu">
 		</form>
 		<br/>
-		<br/>
-		<div id="postaDago">
-			Zure posta...
-		</div>
-                <br/>
-		<div id="pasaDago">
-			Zure pasahitza...
-		</div>
 		<div align="right">
 			<a href="layout.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
 		</div>
