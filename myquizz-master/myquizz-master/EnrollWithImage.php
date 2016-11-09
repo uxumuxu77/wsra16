@@ -27,6 +27,8 @@
 	$abize2=$_POST['abizena2'];
 	$telef=$_POST['telefonoa'];
 	$pasa=$_POST['pasahitza'];
+	$pasaZer=$_POST['pasahitzaZer'];
+	$postaZer=$_POST['postaZer'];
 	
 	if (filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+\d{3}@ikasle\.ehu\.e(s|us)/"))) === false) 
 	{
@@ -47,7 +49,17 @@
 					}else if (filter_var($pasa, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-zñáéíóúA-ZÑ0-9]{6,}/"))) === false)
 						{
 							echo("Pasahitza ez da zuzena, gutxienez 6 karaktere izan behar ditu<a href='signUp.html'>Formulariora itzuli</a>");
-						}
+							} else if ($pasaZer=="EZZUZENA")
+							{
+							echo ("Ez duzu tiketik, erosi erregistratzeko<a href='signUp.html'>Formulariora itzuli</a>");
+							
+							} else if ($pasaZer!="BALIOZKOA")
+								{
+								echo ("Idatzi duzun pasahitza ez da gogorra<a href='signUp.html'>Formulariora itzuli</a>");
+								} else if ($postaZer!="MATRIKULATUA")
+									{
+										echo("Zure posta ez dago matrikulatuta web sistema irakasgaian<a href='signUp.html'>Formulariora itzuli</a>");
+									}
 	else
 	{
 	if ($_POST['espezialitatea']=='Besterik')

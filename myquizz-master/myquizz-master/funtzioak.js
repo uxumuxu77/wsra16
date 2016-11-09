@@ -9,6 +9,8 @@
 			var pas=pasahitza(formularioa);
 			var pos=posta(formularioa);
 			var tel=telefonoa(formularioa);
+
+
 			
 			if (bet&&izen&& abi1&& abi2&&pas&&pos&&tel) 
 			{
@@ -206,4 +208,16 @@
 				return true;
 			}
 		} 
- 
+		
+		function zuzena()
+		{
+			if (!(pasa=="BALIOZKOA"&& post=="MATRIKULATUA"))
+			{
+				return false;
+			} else {
+				return true;
+			}
+						
+			
+		}
+		

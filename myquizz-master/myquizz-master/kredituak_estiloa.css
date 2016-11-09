@@ -20,6 +20,16 @@ body
 		width:50px;
 		border:1px solid #000;
 	}
+	
+.left{
+ float: left;
+
+}
+.right{
+    float: right;
+
+}
+
 
 h1
 	{

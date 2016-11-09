@@ -15,25 +15,31 @@ $server->register('pasaZerbitzari',array('x'=>'xsd:string'),array('z'=>'xsd:stri
 
 //funtzioa inplementatzen dugu
 
-function pasaZerbitzari($x)
+function pasaZerbitzari($x,$z)
 {
-  $fitxa=fopen("toppasswords.txt","r");
-if ($fitxa==NULL){
-echo'Errorea fitxategia irakurtzerakoan';
-}else {
-		while (!feof($fitxa))
-		{
-                        
-			if(trim(fgets($fitxa))==$x)
-				{
-					return "BALIOGABEA"; 
-                                        break;     
-				}
+	
+	if ($z!="1234" || $z!="5678"){
+		return "EZZUZENA";
+		break;
+	}else{
+	  $fitxa=fopen("toppasswords.txt","r");
+	if ($fitxa==NULL){
+	echo'Errorea fitxategia irakurtzerakoan';
+	}else {
+			while (!feof($fitxa))
+			{
+							
+				if(trim(fgets($fitxa))==$x)
+					{
+						return "BALIOGABEA"; 
+						break;     
+					}
 
-		}
-	        return "BALIOZKOA";
-	         fclose ($fitxa);
-               }
+			}
+				return "BALIOZKOA";
+				 fclose ($fitxa);
+				   }
+	}
 }
 //nusoap klaseko sevice metodoari dei egiten diogu
 

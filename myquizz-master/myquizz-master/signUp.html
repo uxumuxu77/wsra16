@@ -14,6 +14,10 @@
 		   href='stylesPWS/smartphone.css' />
 	<script type="text/javascript" src="./funtzioak.js"></script>
 	<script type="text/javascript">
+	
+	 var  i=0;
+	 var a=0;
+	 var u=0;
 		function ikusBalioak(){
 			var sAux=""; 
 			var frm=document.getElementById("erregistro"); 
@@ -59,12 +63,19 @@
 			}  
 		}
 		
-					Postaxhttp = new XMLHttpRequest();
+			Postaxhttp = new XMLHttpRequest();
 			Postaxhttp.onreadystatechange = function(){
 			if (Postaxhttp.readyState==4 && Postaxhttp.status==200)
-			{document.getElementById("postaDago").innerHTML=Postaxhttp.responseText; 
-			if(Postaxhttp.responseText=="MATRIKULATUA")
-			document.erregistro.erregistratu.disabled=false;
+			{
+				document.getElementById("postaDago").innerHTML=Postaxhttp.responseText;
+				document.getElementById("postaZer").value=Postaxhttp.responseText;
+				if(Postaxhttp.responseText=="MATRIKULATUA"){
+						balioegoki();
+					}else{
+
+						
+					}
+				
 			
 			}
 			}
@@ -76,23 +87,28 @@
 			  Postaxhttp.send(null);
 			  }
 			  
-                        Pasaxhttp = new XMLHttpRequest();
-			Pasaxhttp.onreadystatechange = function(){
-			if (Pasaxhttp.readyState==4 && Pasaxhttp.status==200)
+            Pasaxhttp = new XMLHttpRequest();
+			Pasaxhttp.onreadystatechange = function()
 			{
-                          document.getElementById("pasaDago").innerHTML=Pasaxhttp.responseText;
+				if (Pasaxhttp.readyState==4 && Pasaxhttp.status==200)
+				{
+							  document.getElementById("pasaDago").innerHTML=Pasaxhttp.responseText;
+							  document.getElementById("pasahitzaZer").value=Pasaxhttp.responseText;
 
-                         }
+				}
+
+				
 			}
-		 
 		 function egiaztatuPasa(){
 		 
 			  var pasa=document.getElementById("pasahitza").value;
-			  Pasaxhttp.open("GET", "egiaztatuPasahitza.php?pas="+pasa, true);
+			  var ticket=document.getElementById("ticket").value;
+			  Pasaxhttp.open("GET", "egiaztatuPasahitza.php?pas="+pasa+"&ticket="+ticket, true);
 			  Pasaxhttp.send(null);
 			  }
-								
-		
+			  
+			  
+
 
 	</script> 
 
@@ -102,7 +118,7 @@
 		<h1 align="center"> FORMULARIOA</h1>
 		<hr/>
 		<br/>
-		<form id ="erregistro" name ="erregistro" onSubmit ="return ikusBalioak()" method ="post" action="EnrollWithImage.php"enctype="multipart/form-data">
+		<form id ="erregistro" name ="erregistro" onSubmit ="return erakutsi()" method ="post" action="EnrollWithImage.php" enctype="multipart/form-data">
 			<b> Izena*:</b><input type="text" name="izena">
 			<br/><br/>
 			<b> Abizena1*:</b><input type="text" name="abizena1">
@@ -111,7 +127,9 @@
 			<br/><br/>
 			<b> Eposta*:</b><input type="text" name="posta" onchange="egiaztatuPos()" id="posta">
 			<br/><br/>
-			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza" onchange="egiaztatuPasa()">
+			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza">
+			<br/><br/>
+			<b> Ticket identifikagailua*:</b><input type="text" name="ticket" id="ticket" onchange="egiaztatuPasa()">
 			<br/><br/>
 			<b> Telefonoa*:</b><input type="text" name="telefonoa" maxlength="9">
 			<br/><br/>
@@ -133,15 +151,23 @@
 			<input type=file size=60 id="fitx1" name="fitx1" onchange="argazkiaErakutsi(this)" ><br><br>
 			<img id="argazki" width="120" height="100">
 			<br/><br/>
-			<input type="submit" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form)"id="erregistratu" disabled>
+			<textarea name="pasahitzaZer" rows="1" cols="20"  id="pasahitzaZer" style="visibility:hidden;"></textarea>
+			<textarea  name="postaZer" rows="1" cols="20"  id="postaZer" style="visibility:hidden;"></textarea>
+			<br/><br/>
+			<input type="submit" id="erregistratu" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form)">
 			<input type="reset" name="Garbitu" value="Garbitu">
+
 		</form>
 		<br/>
+		<br/>
+		<p>POSTA</p>
 		<br/>
 		<div id="postaDago">
 			Zure posta...
 		</div>
-                <br/>
+        <br/>
+		<p>PASAHITZA</p>
+		<br/>
 		<div id="pasaDago">
 			Zure pasahitza...
 		</div>
