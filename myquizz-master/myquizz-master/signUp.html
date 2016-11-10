@@ -66,18 +66,10 @@
 			Postaxhttp = new XMLHttpRequest();
 			Postaxhttp.onreadystatechange = function(){
 			if (Postaxhttp.readyState==4 && Postaxhttp.status==200)
-			{
-				document.getElementById("postaDago").innerHTML=Postaxhttp.responseText;
-				document.getElementById("postaZer").value=Postaxhttp.responseText;
-				if(Postaxhttp.responseText=="MATRIKULATUA"){
-						balioegoki();
-					}else{
-
-						
-					}
-				
-			
-			}
+				{
+					document.getElementById("postaDago").innerHTML=Postaxhttp.responseText;
+					document.getElementById("postaZer").value=Postaxhttp.responseText;
+				}
 			}
 		 
 		 function egiaztatuPos(){
@@ -102,8 +94,7 @@
 		 function egiaztatuPasa(){
 		 
 			  var pasa=document.getElementById("pasahitza").value;
-			  var ticket=document.getElementById("ticket").value;
-			  Pasaxhttp.open("GET", "egiaztatuPasahitza.php?pas="+pasa+"&ticket="+ticket, true);
+			  Pasaxhttp.open("GET", "egiaztatuPasahitza.php?pas="+pasa,true);
 			  Pasaxhttp.send(null);
 			  }
 			  
@@ -127,9 +118,9 @@
 			<br/><br/>
 			<b> Eposta*:</b><input type="text" name="posta" onchange="egiaztatuPos()" id="posta">
 			<br/><br/>
-			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza">
+			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza"  onchange="egiaztatuPasa()">
 			<br/><br/>
-			<b> Ticket identifikagailua*:</b><input type="text" name="ticket" id="ticket" onchange="egiaztatuPasa()">
+			<!--<b> Ticket identifikagailua*:</b><input type="text" name="ticket" id="ticket">-->
 			<br/><br/>
 			<b> Telefonoa*:</b><input type="text" name="telefonoa" maxlength="9">
 			<br/><br/>

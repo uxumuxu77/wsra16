@@ -5,6 +5,7 @@ require_once('nusoap/lib/class.wsdlcache.php');
 
 //soap_server motako objektua sortzen dugu
 $ns="http://websistema16.esy.es/myquizz-master/";  //name of the service
+//$ns="localhost:1234/wsra16/myquizz-master/myquizz-master/";
 
 $server = new soap_server;
 $server->configureWSDL('pasaZerbitzari',$ns);
@@ -15,32 +16,31 @@ $server->register('pasaZerbitzari',array('x'=>'xsd:string'),array('z'=>'xsd:stri
 
 //funtzioa inplementatzen dugu
 
-function pasaZerbitzari($x,$z)
+function pasaZerbitzari($x/*,$z*/)
 {
-	
+	/*
 	if ($z!="1234" || $z!="5678"){
 		return "EZZUZENA";
 		break;
-	}else{
-	  $fitxa=fopen("toppasswords.txt","r");
+	}else{*/
+	 $fitxa=fopen("toppasswords.txt","r");
 	if ($fitxa==NULL){
 	echo'Errorea fitxategia irakurtzerakoan';
 	}else {
 			while (!feof($fitxa))
-			{
-							
-				if(trim(fgets($fitxa))==$x)
-					{
-						return "BALIOGABEA"; 
-						break;     
-					}
+				{
+								
+					if(trim(fgets($fitxa))==$x)
+						{
+							return "BALIOGABEA";    
+						}
 
+				}
+			return "BALIOZKOA";
+            fclose ($fitxa);
 			}
-				return "BALIOZKOA";
-				 fclose ($fitxa);
-				   }
-	}
 }
+
 //nusoap klaseko sevice metodoari dei egiten diogu
 
 $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
