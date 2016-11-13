@@ -3,8 +3,8 @@
 require_once('nusoap/lib/nusoap.php');
 require_once('nusoap/lib/class.wsdlcache.php');
 
-//$soaperabil = new nusoap_client('http://websistema16.esy.es/myquizz-master/pasaZerbitzari.php?wsdl',false);
-$soaperabil = new nusoap_client('http://localhost:1234/wsra16/myquizz-master/myquizz-master/pasaZerbitzari.php?wsdl',false);
+$soaperabil = new nusoap_client('http://websistema16.esy.es/myquizz-master/pasaZerbitzari.php?wsdl',false);
+//$soaperabil = new nusoap_client('http://localhost:1234/wsra16/myquizz-master/myquizz-master/pasaZerbitzari.php?wsdl',false);
 
 $dago=$soaperabil->call('pasaZerbitzari',array('x'=>$_GET['pas'])/*,array('z'=>$_GET['ticket'])*/);
 /*
