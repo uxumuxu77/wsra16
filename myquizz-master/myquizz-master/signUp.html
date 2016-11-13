@@ -99,7 +99,20 @@
 			  }
 			  
 			  
-
+		function pasahitza ()
+		{
+			var pasa=document.getElementById("pasahitza").value;
+			var pasa2=document.getElementById("pasahitzaer").value;
+			
+			if (pasa==pasa2)
+			{
+				alert("Bi pasahitzak zuzenak dira");
+				return true;
+			}else{
+				alert("Pasahitzak ez dira berdinak.");
+				return false;
+				}
+		}
 
 	</script> 
 
@@ -118,8 +131,9 @@
 			<br/><br/>
 			<b> Eposta*:</b><input type="text" name="posta" onchange="egiaztatuPos()" id="posta">
 			<br/><br/>
-			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza"  onchange="egiaztatuPasa()">
+			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza">
 			<br/><br/>
+			<b> Pasahitza Errepikatu*:</b><input type="password" name="pasahitzaer" id="pasahitzaer" onchange="egiaztatuPasa()" >
 			<!--<b> Ticket identifikagailua*:</b><input type="text" name="ticket" id="ticket">-->
 			<br/><br/>
 			<b> Telefonoa*:</b><input type="text" name="telefonoa" maxlength="9">
@@ -145,7 +159,7 @@
 			<textarea name="pasahitzaZer" rows="1" cols="20"  id="pasahitzaZer" style="visibility:hidden;"></textarea>
 			<textarea  name="postaZer" rows="1" cols="20"  id="postaZer" style="visibility:hidden;"></textarea>
 			<br/><br/>
-			<input type="submit" id="erregistratu" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form)">
+			<input type="submit" id="erregistratu" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form);pasahitza();">
 			<input type="reset" name="Garbitu" value="Garbitu">
 
 		</form>

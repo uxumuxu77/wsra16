@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if($_SESSION['logeatua'] != 'BAI'){
+		header("Location:Location.html");
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -149,6 +157,7 @@
 
 		
   <a href="Ekintzak.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
+   <a href="logOut.php"> <img src="./irudiak/logout.jpg" height="50px"  width="50px"/></a>
   
   </body>
 </html>

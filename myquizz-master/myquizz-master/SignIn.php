@@ -47,10 +47,8 @@
 			die('Ez da datu basera ondo konektatu:'.$link->connect_error);
 			//exit();
 		} 
-		
-	if(isset($_SESSION["session_username"])){
-		header("Location: InsertQuestion.php");
-	}
+	session_start();	
+
 
 	if (isset($_POST['logeatu']))
 	{
@@ -60,33 +58,51 @@
 		{
 			$erabilposta=$_POST['posta'];
 			$pasahitz=$_POST['pasahitza'];
+			$posta2=null;
+			
 
 			$erabil= $link -> query("SELECT * FROM erabiltzaile WHERE Eposta='".$erabilposta."'");
-			setcookie("ErabilLog",$erabilposta);
-			while($row = mysqli_fetch_assoc($erabil))
-			{
-						$posta2=$row['Eposta'];
-						$pas2=$row['Pasahitza'];
-			}
-			if($posta2 == $erabilposta && $pas2 ==$pasahitz)
-			{
-				$ordua= Date('Y-m-d H:i:s');
-				$sql="INSERT INTO konexioak(Eposta,Ordua) 
-				VALUES ('$erabilposta','$ordua')";
-				if (!$link -> query($sql)){
-					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
-				}else{
-					echo 'konexioa zuzen sartu da';
+
+			if ($erabil){
+					while($row = mysqli_fetch_assoc($erabil))
+						{
+									$posta2=$row['Eposta'];
+									$pas2=$row['Pasahitza'];
+						}
+			}else{
+						die("<p>Errorea gertatu da:</p>");
+						
 				}
-				header("Location:Ekintzak.html");
+						if($posta2 == $erabilposta && $pas2 ==$pasahitz)
+						{
+							$_SESSION['username'] = $erabilposta;
+							$ordua= Date('Y-m-d H:i:s');
+							$sql="INSERT INTO konexioak(Eposta,Ordua) 
+							VALUES ('$erabilposta','$ordua')";
+							if (!$link -> query($sql)){
+								die("<p>Errorea gertatu da: ".$link -> error ."</p>");
+							}else{
+								echo 'konexioa zuzen sartu da';
+								$_SESSION['logeatua']='BAI';
+								if ($_SESSION['username']=="web000@ehu.es")
+								{
+									header("Location:reviewingQuizes.php");
+								} else{
+										header("Location:handlingQuizes.php");
+									}
+							}
+						}else 
+							{
+								echo ("</br></br>Sartutako datuak ez dira zuzenak, saiatu berriro ");
+								$_SESSION['logeatua']='EZ';
+							}
+				
+				
 
-			}
-			else {
+				
+
 			
-				echo ("</br></br>Sartutako datuak ez dira zuzenak, saiatu berriro ");
-
-
-			}
+			
 			
 			
 		}

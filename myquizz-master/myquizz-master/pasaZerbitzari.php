@@ -4,8 +4,8 @@ require_once('nusoap/lib/nusoap.php');
 require_once('nusoap/lib/class.wsdlcache.php');
 
 //soap_server motako objektua sortzen dugu
-$ns="http://websistema16.esy.es/myquizz-master/";  //name of the service
-//$ns="localhost:1234/wsra16/myquizz-master/myquizz-master/";
+//$ns="http://websistema16.esy.es/myquizz-master/";  //name of the service
+$ns="http://localhost:1234/wsra16/myquizz-master/myquizz-master/";
 
 $server = new soap_server;
 $server->configureWSDL('pasaZerbitzari',$ns);

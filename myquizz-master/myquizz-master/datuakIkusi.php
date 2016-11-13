@@ -2,7 +2,7 @@
 	//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
-
+session_start();
 	
 	if ($link->connect_error)
 		{
@@ -10,7 +10,7 @@
 			die('Ez da datu basera ondo konektatu:'.$link->connect_error);
 			//exit();
 		} 
-	$emaila=$_COOKIE["ErabilLog"];
+	$emaila=$_SESSION['username'];
 	
 		$galde= $link->query("SELECT * FROM galderak WHERE EgileEposta='$emaila'");
 		echo'<p>Datu basean sartuta dituzun galderen kopurua:</p>';

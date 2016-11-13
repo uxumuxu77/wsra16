@@ -3,7 +3,7 @@
 	//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
-	
+	session_start();
 	
 	if ($link->connect_error)
 		{
@@ -13,7 +13,7 @@
 		} 
 
 else{
-	$emaila=$_COOKIE["ErabilLog"];
+	$emaila=$_SESSION['username'];
 	$galguztiak=$link->query("SELECT * FROM galderak");
 	$niregal=$link->query("SELECT * FROM galderak WHERE EgileEposta='$emaila';");
 		if(!($niregal && $galguztiak)){

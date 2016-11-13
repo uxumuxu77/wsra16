@@ -11,17 +11,17 @@
 			die('Ez da datu basera ondo konektatu:'.$link->connect_error);
 			//exit();
 		} 
-
+		session_start();
 	
 		
-		$emaila=$_COOKIE["ErabilLog"];
+		$emaila=$_SESSION['username'];
 		$galdera= $_GET["galdera"];
 		echo '<p>Orain sartu duzun galdera honako hau da:</p></br>';
 		echo($galdera);
 		$erantzuna=$_GET["erantzuna"];
 		$zailtasuna=$_GET["zailtasuna"];
 		$gaia=$_GET["gaia"];
-		/*$mota="Galdera Txertatu";
+		$mota="Galdera Txertatu";
 		$ordua= Date('Y-m-d H:i:s');
 		$ip = $_SERVER['REMOTE_ADDR'];
 		
@@ -35,7 +35,7 @@
 	if (!$link -> query($sql)){
 					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
 				}
-	*/
+	
 	$sql = "INSERT INTO galderak(EgileEposta,Galdera,Erantzuna,ZailMaila,Gaia) 
 	VALUES ('$emaila','$galdera','$erantzuna','$zailtasuna','$gaia')";
 	if (!$link -> query($sql)){
