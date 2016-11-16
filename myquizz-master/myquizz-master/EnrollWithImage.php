@@ -10,15 +10,19 @@
 			die('Ez da datu basera ondo konektatu:'.$link->connect_error);
 			//exit();
 		} 
+		if($_FILES['fitx1']['error']!=0){
+
 		
-		$file= $_FILES['fitx1']['tmp_name'];
-		if(!isset($file))
-			echo "Argazkirik gabeko erabiltzailea";
+			$image=null;
+            $image_name="";
+                }
 		else
 		{
+            $file= $_FILES['fitx1']['tmp_name'];
 			$image= addslashes(file_get_contents($_FILES['fitx1']['tmp_name']));
 			$image_name= addslashes($_FILES['fitx1']['name']);
 		}
+
 
 		
 	$email=$_POST['posta'];
