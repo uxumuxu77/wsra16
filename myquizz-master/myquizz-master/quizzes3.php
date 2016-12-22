@@ -56,8 +56,8 @@ session_start();
 	
 	<div align="center" style="overflow:auto;height:500px">
 <?php 
-$link = new mysqli("localhost","root","","quiz");
-	//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+//$link = new mysqli("localhost","root","","quiz");
+	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 
 $zuzen=$link->query("SELECT * FROM galderak Where GalderaZenbakia='$zenbakia' and Erantzuna='$erabilerantzun'");
 	$zuzenkop=mysqli_num_rows($zuzen);

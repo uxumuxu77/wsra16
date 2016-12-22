@@ -43,7 +43,6 @@ mysqli_close($link);
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout2.php'>Home</a></span>
-		<span><a href='/quizzes'>Quizzes</a></span>
 		<span><a href='galderak.php'>Galderak ikusi</a></span>
 		<span><a href='handlingQuizes.php'>Galderak sortu</a></span>
 		<span><a href='credits2.php'>Credits</a></span>

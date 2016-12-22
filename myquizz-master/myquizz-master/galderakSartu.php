@@ -51,7 +51,7 @@
 					$correctResponse= $assessmentItem-> addChild('correctResponse');
 					$correctResponse-> addChild('Erantzuna',$erantzuna);					
 					$xml-> asXML('galderak.xml');*/
-					echo 'Galdera zuzen sartu da, bai datu basean, baita XML-an ere.</br>';
+					echo 'Galdera zuzen sartu da datu basean.</br>';
 				/*	echo "<a href ='seeXMLQuestions.php'>Ikusi galderak(XML)</a><br/>";
 					echo "<a href ='galderak.xml'>Ikusi galderak(XML)Transformatua</a><br/>";
 					echo "<a href ='Ekintzak.html'>Zer ekintza egin aukeratzeko sakatu hemen.</a><br/>";*/

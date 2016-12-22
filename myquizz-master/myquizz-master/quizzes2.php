@@ -60,8 +60,8 @@ $_SESSION['Oker']=0;
 	<?php
 	
 	
-	$link = new mysqli("localhost","root","","quiz");
-	//$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+	//$link = new mysqli("localhost","root","","quiz");
+	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	$galderaa= $link->query("SELECT * FROM galderak");
 
 			echo'<table border=2 align="center">
@@ -82,7 +82,7 @@ $_SESSION['Oker']=0;
 				<td>".$rowgal[2]."</td>
 			</tr>";
 	}
-	
+	mysqli_close($link);
 	?>
 	</form>
 	</div>

@@ -78,7 +78,6 @@ alert("Ha ocurrido un error")
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout3.php'>Home</a></span>
-		<span><a href='/quizzes'>Quizzes</a></span>
 		<span><a href='reviewingQuizes.php'>Galderak ikusi</a></span>
 		<span><a href='galderaEzabatu.php'>Galderak ezabatu</a></span>
 		<span><a href='erabilGalderakEzabatu.php'>Erabiltzaile baten galderak ezabatu</a></span>
