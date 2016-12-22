@@ -3,7 +3,7 @@
 session_start();
 
 
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 
 	$zenbakia=$_POST['galzen'];
@@ -46,7 +46,7 @@ session_start();
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout.html'>Home</a></span>
-		<span><a href='quizzes2.php'>Quizzes</a></span>
+		<span><a href='quizzes.php'>Quizzes</a></span>
 		<span><a href='GalderaAnonimo.php'>Galderak ikusi</a></span>
 		<span><a href='credits.html'>Credits</a></span>
 		<span><a href='getUserInform.html'>Ikasleak bilatu</a></span>

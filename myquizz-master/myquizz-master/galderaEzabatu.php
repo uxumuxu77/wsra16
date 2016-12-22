@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 	if($_SESSION['logeatua'] != 'BAI' || $_SESSION['rola']!='IRAKASLE'){
@@ -46,7 +46,6 @@ mysqli_close($link);
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout3.php'>Home</a></span>
-		<span><a href='/quizzes'>Quizzes</a></span>
 		<span><a href='reviewingQuizes.php'>Galderak ikusi</a></span>
 		<span><a href='galderaEzabatu.php'>Galderak ezabatu</a></span>
 		<span><a href='erabilGalderakEzabatu.php'>Erabiltzaile baten galderak ezabatu</a></span>
@@ -61,7 +60,7 @@ mysqli_close($link);
 	<div align="center" style="overflow:auto;height:500px">
 	<?php
 	
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 

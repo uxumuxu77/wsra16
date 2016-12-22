@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 	if($_SESSION['logeatua'] != 'BAI' || $_SESSION['rola']!='IKASLE'){
@@ -46,7 +46,6 @@ mysqli_close($link);
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout2.php'>Home</a></span>
-		<span><a href='/quizzes'>Quizzes</a></span>
 		<span><a href='galderak.php'>Galderak ikusi</a></span>
 		<span><a href='handlingQuizes.php'>Galderak sortu</a></span>
 		<span><a href='credits2.php'>Credits</a></span>
@@ -55,8 +54,8 @@ mysqli_close($link);
 <section class="main" id="s1">
 <div align="center" style="overflow:auto;height:500px">
 <?php
-//$link=new mysqli("localhost","root", "","quiz");
-$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
+//$link = new mysqli("localhost","root","","quiz");
+	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 
 		$emaila=$_SESSION['username'];
 		$kon=mysqli_query($link,"select KKodea from konexioak where Eposta='$emaila' order by KKodea desc limit 1");

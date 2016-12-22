@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 	$erabiltzailea=$_SESSION['username'];
@@ -55,7 +55,7 @@ mysqli_close($link);
 	<div align="center" style="overflow:auto;height:500px">
 	<?php
 	
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 

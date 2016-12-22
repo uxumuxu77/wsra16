@@ -5,7 +5,7 @@ $_SESSION['Zuzen']=0;
 $_SESSION['Oker']=0;
 
 
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 
 	

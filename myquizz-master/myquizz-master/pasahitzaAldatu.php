@@ -27,7 +27,6 @@
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout.html'>Home</a></span>
-		<span><a href='/quizzes'>Quizzes</a></span>
 		<span><a href='GalderaAnonimo.php'>Galderak ikusi</a></span>
 		<span><a href='credits.html'>Credits</a></span>
 		<span><a href='getUserInform.html'>Ikasleak bilatu</a></span>
@@ -38,7 +37,7 @@
 	<div align="center" style="overflow:auto;height:500px">
 		<?php
 
-	//$link = new mysqli("localhost","root","","quiz");
+//$link = new mysqli("localhost","root","","quiz");
 	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
 	
 
