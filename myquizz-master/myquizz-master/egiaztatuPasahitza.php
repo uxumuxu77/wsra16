@@ -6,17 +6,16 @@ require_once('nusoap/lib/class.wsdlcache.php');
 $soaperabil = new nusoap_client('http://websistema16.esy.es/myquizz-master/pasaZerbitzari.php?wsdl',false);
 //$soaperabil = new nusoap_client('http://localhost:1234/wsra16/myquizz-master/myquizz-master/pasaZerbitzari.php?wsdl',false);
 
-$dago=$soaperabil->call('pasaZerbitzari',array('x'=>$_GET['pas'])/*,array('z'=>$_GET['ticket'])*/);
-/*
-if ($dago=="EZZUZENA"){
-	echo 'Ez duzu tiket zuzenik, erosi bat erregistratu nahi baduzu.';
-}*/
+$dago=$soaperabil->call('pasaZerbitzari',array('x'=>$_GET['pas']));
+
 if ($dago=="BALIOGABEA"){
-	echo 'Ezin da pasahitz hori erabili.Beste batekin saiatu';
+	echo 'BALIOGABEA';
 }
 else if ($dago=="BALIOZKOA"){
 	echo 'BALIOZKOA';
-}else{
-    echo 'Errorea gertatu da.';
-}
+}else if ($dago=="FITXA"){
+    echo 'Errorea Fitxategia irakurtzean.';
+}else 
+
+	echo 'Erroreren bat gertatu da';
 ?>

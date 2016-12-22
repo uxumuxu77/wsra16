@@ -8,34 +8,21 @@ $ns="http://websistema16.esy.es/myquizz-master/";  //name of the service
 //$ns="http://localhost:1234/wsra16/myquizz-master/myquizz-master/";
 
 $server = new soap_server;
-$server->configureWSDL('pasaZerbitzari',$ns);
+$server->configureWSDL('ticketZerbitzari',$ns);
 $server->wsdl->schemaTargetNamespace=$ns;
 
 //inplementatu nahi dugun funtzioa erregistratzen dugu
-$server->register('pasaZerbitzari',array('x'=>'xsd:string'),array('z'=>'xsd:string'),$ns);
+$server->register('ticketZerbitzari',array('x'=>'xsd:string'),array('z'=>'xsd:string'),$ns);
 
 //funtzioa inplementatzen dugu
 
-function pasaZerbitzari($x)
+function ticketZerbitzari($x)
 {
-	$fitxa=fopen("toppasswords.txt","r");
-	if ($fitxa==NULL)
-	{	
-		return'FITXA';
-	}else {
-			while (!feof($fitxa))
-				{			
-					if(trim(fgets($fitxa))==$x)
-						{
-							fclose ($fitxa);
-							return "BALIOGABEA";    
-						}
-
-				}
-				 fclose ($fitxa);
+	
+	if ($x=="1234" || $x=="5678")
+		{
 			return "BALIOZKOA";
-           
-			}
+		} else return "BALIOGABEA";
 }
 
 //nusoap klaseko sevice metodoari dei egiten diogu

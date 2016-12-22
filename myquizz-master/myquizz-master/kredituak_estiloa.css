@@ -1,36 +1,30 @@
 /* Gorputzaren estiloa*/
 body
 	{
-		background-color:#FFFF00;
+		background-color:#999;
 	}
 
-/*Argazkien estiloa*/
+/*Argazkien estiloa
 .argazki
 	{
-		height: 180px;
-		width:200px;
+		height: 100px;
+		width: 130px;
 		border:2px solid #000;
 	}
-	
-/*Atzera irudiaren estiloa*/
-
-.atzera
-	{
-		height:50px;
-		width:50px;
-		border:1px solid #000;
-	}
+	*/
 	
 .left{
  float: left;
+ width:%45;
 
 }
 .right{
     float: right;
+	 width:%45;
 
 }
 
-
+/*
 h1
 	{
 	
@@ -50,4 +44,4 @@ p
 	{
 	
 		color:#0B610B;
-	}
+	}*/

@@ -20,7 +20,7 @@ mysqli_close($link);
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
-	<title>ReviewingQuizes</title>
+	<title>Galdera Ezabatu</title>
     <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
 	<link rel='stylesheet' 
 		   type='text/css' 
@@ -37,13 +37,12 @@ mysqli_close($link);
 	<header class='main' id='h1'>
 
       <span class="right"><a href="logOut.php"> <img src="irudiak/logout.jpg" height="75" width="75"> </a> </span>
-	  <table align="right">
+	  	  <table align="right">
 		<tr>
 				<td><?php echo $ize?></td>
 				<td><img src=data:image/jpeg;base64,<?php echo $argaz?> width="50" height="50"/></td>
 			</tr>
 	</table>
-
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout3.php'>Home</a></span>
@@ -80,7 +79,7 @@ mysqli_close($link);
 		$galde= $link->query("SELECT * FROM galderak");
 		echo'<p>Datu basean sartuta dauden galderen kopurua:</p>';
 		echo $galde->num_rows;
-		echo'<p>Orriaren behealdean aukeratu aldatu nahi duzun galdera</p>';
+		echo'<p>Orriaren behealdean aukeratu ezabatu nahi duzun galdera</p>';
 		echo'</br>';
 	
 			echo'<table border=2 align="center">
@@ -109,11 +108,11 @@ mysqli_close($link);
 			</tr>";
 	}
 		echo'</table>';
-		echo'Aldatu nahi duzun galderaren zenbakia idatzi hemen';
-		echo'<form id="galaukera" method="post" action="galderaAldatu.php">';
+		echo'Ezabatu nahi duzun galderaren zenbakia idatzi hemen';
+		echo'<form id="galaukera" method="post" action="galderaEzabatu2.php">';
 		
 		echo'<input type="text" id="zenbakia" name="zenbakia">';
-		echo'<input type="submit" id="galderaAldatu" value="Galdera aldatu">';
+		echo'<input type="submit" id="galderaEzabatu" value="Galdera ezabatu">';
 		echo'</form>';
 	
 	

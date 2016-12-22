@@ -1,8 +1,10 @@
-﻿<!DOCTYPE html>
+
+
+<!DOCTYPE html>
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
-	<title>Layout</title>
+	<title>PasahitzaAldatu</title>
     <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
 	<link rel='stylesheet' 
 		   type='text/css' 
@@ -16,9 +18,9 @@
   <body>
   <div id='page-wrap'>
 	<header class='main' id='h1'>
-      <span class="right"><a href="SignIn.php"><img src="irudiak/login.jpg"  height="75" width="75"></a> </span>
-	  <span class="right"><a href="signUp.html"><img src="irudiak/signUp.png"  height="75" width="75"></a> </span>
-	  	<table class ="right" align="right">
+      <span class="right"><a href="SignIn.php"><img src="irudiak/login.jpg" height="75" width="75"></a> </span>
+	  <span class="right"><a href="signUp.html"><img src="irudiak/signUp.png" height="75" width="75"></a> </span>
+	  	  	 <table align="right">
 		<tr>
 				<td>ANONIMOA</td>
 				<td><img src=./irudiak/anonimo.png width="50" height="50"/></td>
@@ -27,23 +29,31 @@
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout.html'>Home</a></span>
-		<span><a href='quizzes.php'>Quizzes</a></span>
+		<span><a href='/quizzes'>Quizzes</a></span>
 		<span><a href='GalderaAnonimo.php'>Galderak ikusi</a></span>
 		<span><a href='credits.html'>Credits</a></span>
 		<span><a href='getUserInform.html'>Ikasleak bilatu</a></span>
 	</nav>
     <section class="main" id="s1">
-		    <?php
-			session_start();
-
-
-	//$link = new mysqli("localhost","root","","quiz");
-	$link=new mysqli("mysql.hostinger.es","u655664297_uxira","huM7AvQ1Lj","u655664297_quiz");
-				$_SESSION['Erabiltzaile']=NULL;
-			?>
+    
 	
-	<div>
-	Quizzes and credits will be displayed in this spot in future laboratories ...
+	<div align="center" style="overflow:auto;height:500px">
+	<form id ="pasa" name ="pasa" method ="post" action="pasahitzaAldatu.php">
+			<br/><br/>
+			<b> Eposta*:</b><input type="text" name="posta" id="posta">
+			<br/><br/>
+			<b> Pasahitz berria*:</b><input type="password" name="pasa1">
+			<br/><br/>
+			<b> Pasahitz berria errepikatu*:</b><input type="password" name="pasa2">
+			<br/><br/>			
+			<input type="reset" name="Garbitu" value="Garbitu">
+			<input type="submit" name="logeatu" value="Logeatu">
+			
+			<br/><br/>
+
+ </form>
+	
+ 
 	</div>
     </section>
 	<footer class='main' id='f1'>

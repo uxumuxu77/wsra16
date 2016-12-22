@@ -93,12 +93,30 @@
 			}
 		 function egiaztatuPasa(){
 		 
-			  var pasa=document.getElementById("pasahitza").value;
+			  var pasa=document.getElementById("pasahitzaer").value;
+			 
 			  Pasaxhttp.open("GET", "egiaztatuPasahitza.php?pas="+pasa,true);
 			  Pasaxhttp.send(null);
 			  }
 			  
+			Ticketxhttp = new XMLHttpRequest();
+			Ticketxhttp.onreadystatechange = function()
+			{
+				if (Ticketxhttp.readyState==4 && Ticketxhttp.status==200)
+				{
+							  document.getElementById("ticketZuzena").innerHTML=Ticketxhttp.responseText;
+							  document.getElementById("ticketZer").value=Ticketxhttp.responseText;
+
+				}
+
+				
+			}
 			  
+		function egiaztatuTiketa(){
+				 var ticket=document.getElementById("ticke").value;
+				 Ticketxhttp.open("GET", "egiaztatuTicketa.php?ticketa="+ticket,true);
+				Ticketxhttp.send(null);
+				}	  
 		function pasahitza ()
 		{
 			var pasa=document.getElementById("pasahitza").value;
@@ -107,6 +125,7 @@
 			if (pasa==pasa2)
 			{
 				alert("Bi pasahitzak zuzenak dira");
+
 				return true;
 			}else{
 				alert("Pasahitzak ez dira berdinak.");
@@ -119,6 +138,28 @@
 
   </head>
   <body>
+   <div id='page-wrap'>
+	<header class='main' id='h1'>
+      <span class="right"><a href="SignIn.php"><img src="irudiak/login.jpg"  height="75" width="75"></a> </span>
+	  <span class="right"><a href="signUp.html"><img src="irudiak/signUp.png"  height="75" width="75"></a> </span>
+	  	<table class ="right" align="right">
+		<tr>
+				<td>ANONIMOA</td>
+				<td><img src=./irudiak/anonimo.png width="50" height="50"/></td>
+			</tr>
+	</table>
+    </header>
+	<nav class='main' id='n1' role='navigation'>
+		<span><a href='layout.html'>Home</a></span>
+		<span><a href='/quizzes'>Quizzes</a></span>
+		<span><a href='GalderaAnonimo.php'>Galderak ikusi</a></span>
+		<span><a href='credits.html'>Credits</a></span>
+		<span><a href='getUserInform.html'>Ikasleak bilatu</a></span>
+	</nav>
+    <section class="main" id="s1">
+    
+	
+	<div align="center" style="overflow:auto;height:500px">
 		<h1 align="center"> FORMULARIOA</h1>
 		<hr/>
 		<br/>
@@ -131,10 +172,11 @@
 			<br/><br/>
 			<b> Eposta*:</b><input type="text" name="posta" onchange="egiaztatuPos()" id="posta">
 			<br/><br/>
-			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza">
+			<b> Pasahitza*:</b><input type="password" name="pasahitza" id="pasahitza" >
 			<br/><br/>
-			<b> Pasahitza Errepikatu*:</b><input type="password" name="pasahitzaer" id="pasahitzaer" onchange="egiaztatuPasa()" >
-			<!--<b> Ticket identifikagailua*:</b><input type="text" name="ticket" id="ticket">-->
+			<b> Pasahitza Errepikatu*:</b><input type="password" name="pasahitzaer" id="pasahitzaer" onChange="egiaztatuPasa()">
+			<br/><br/>
+			<b> Ticket identifikagailua*:</b><input type="text" name="ticke" id="ticke" onChange="egiaztatuTiketa()">
 			<br/><br/>
 			<b> Telefonoa*:</b><input type="text" name="telefonoa" maxlength="9">
 			<br/><br/>
@@ -158,6 +200,8 @@
 			<br/><br/>
 			<textarea name="pasahitzaZer" rows="1" cols="20"  id="pasahitzaZer" style="visibility:hidden;"></textarea>
 			<textarea  name="postaZer" rows="1" cols="20"  id="postaZer" style="visibility:hidden;"></textarea>
+			<textarea name="ticketZer" rows="1" cols="20"  id="ticketZer" style="visibility:hidden;"></textarea>
+			<textarea  name="postaZer" rows="1" cols="20"  id="postaZer" style="visibility:hidden;"></textarea>
 			<br/><br/>
 			<input type="submit" id="erregistratu" name="erregistratu" value="Erregistratu" onClick="return funtzioei_deia(this.form);pasahitza();">
 			<input type="reset" name="Garbitu" value="Garbitu">
@@ -176,8 +220,19 @@
 		<div id="pasaDago">
 			Zure pasahitza...
 		</div>
-		<div align="right">
-			<a href="layout.html"> <img src="./irudiak/atzera.jpg" height="50px"  width="50px"/></a>
+		 <br/>
+		<p>TICKETA</p>
+		<br/>
+		<div id="ticketZuzena">
+			Zure tickea...
 		</div>
+
+		</div>
+		    </section>
+	<footer class='main' id='f1'>
+		<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
+		<a href='https://github.com'>Link GITHUB</a>
+	</footer>
+</div>
 </body>
 </html>

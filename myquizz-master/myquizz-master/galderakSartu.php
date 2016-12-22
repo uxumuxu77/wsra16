@@ -42,7 +42,7 @@
 					die("<p>Errorea gertatu da: ".$link -> error ."</p>");
 				}else{
 					echo '</br>';
-					$xml= simplexml_load_file('galderak.xml');
+					/*$xml= simplexml_load_file('galderak.xml');
 					$assessmentItem= $xml-> addChild('assessmentItem');
 					$assessmentItem-> addAttribute('Zailtasuna',$zailtasuna);
 					$assessmentItem -> addAttribute ('Gaia',$gaia);
@@ -50,7 +50,7 @@
 					$itemBody->addChild('Galdera',$galdera);
 					$correctResponse= $assessmentItem-> addChild('correctResponse');
 					$correctResponse-> addChild('Erantzuna',$erantzuna);					
-					$xml-> asXML('galderak.xml');
+					$xml-> asXML('galderak.xml');*/
 					echo 'Galdera zuzen sartu da, bai datu basean, baita XML-an ere.</br>';
 				/*	echo "<a href ='seeXMLQuestions.php'>Ikusi galderak(XML)</a><br/>";
 					echo "<a href ='galderak.xml'>Ikusi galderak(XML)Transformatua</a><br/>";
