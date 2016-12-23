@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,7 +17,7 @@
   <div id='page-wrap'>
 	<header class='main' id='h1'>
       <span class="right"><a href="SignIn.php"><img src="irudiak/login.jpg" height="75" width="75"></a> </span>
-	  <span class="right"><a href="signUp.html"><img src="irudiak/signUp.png" height="75" width="75"></a> </span>
+	  <span class="right"><a href="signUp.html"><img src="irudiak/signup.png" height="75" width="75"></a> </span>
 	  <table align="right">
 		<tr>
 				<td>ANONIMOA</td>
@@ -79,16 +77,19 @@
 			$posta2=null;
 			
 
-			$erabil= $link -> query("SELECT * FROM erabiltzaile WHERE Eposta='".$erabilposta."'");
-			$orain=date('Y-m-d');
-			
-			$link ->query("INSERT INTO saiakera(ErabilEposta,Data) VALUES('$erabilposta','$orain')");
+                        $erabil= $link -> query("SELECT * FROM erabiltzaile WHERE Eposta='".$erabilposta."'");
+			 $orain=date('Y-m-d');
 		
+			$link ->query("INSERT INTO saiakera(ErabilEposta,Data) VALUES('$erabilposta','$orain')");
 			
 			$nireSai=$link -> query("SELECT * FROM saiakera WHERE data='".$orain."' AND ErabilEposta='".$erabilposta."'");
 			$sai=mysqli_num_rows($nireSai);
 			
 			if($sai<3){
+                            
+			
+
+
 				if ($erabil){
 						while($row = mysqli_fetch_assoc($erabil))
 							{
@@ -99,7 +100,7 @@
 							die("<p>Errorea gertatu da:</p>");
 							
 					}
-							if($posta2 == $erabilposta &&(hash_equals($pas2,crypt($pasahitz,$pas2))))
+							if($posta2 == $erabilposta && $pas2==crypt($pasahitz,'st'))
 							{
 								$_SESSION['username'] = $erabilposta;
 								

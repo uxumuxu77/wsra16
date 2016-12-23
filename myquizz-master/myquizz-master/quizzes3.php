@@ -36,7 +36,7 @@ session_start();
   <div id='page-wrap'>
 	<header class='main' id='h1'>
       <span class="right"><a href="SignIn.php"><img src="irudiak/login.jpg" height="75" width="75"></a> </span>
-	  <span class="right"><a href="signUp.html"><img src="irudiak/signUp.png" height="75" width="75"></a> </span>
+	  <span class="right"><a href="signUp.html"><img src="irudiak/signup.png" height="75" width="75"></a> </span>
 	  	  	 <table align="right">
 		<tr>
 				<td><?php echo $_SESSION['Erabiltzaile']?></td>
@@ -46,7 +46,7 @@ session_start();
     </header>
 	<nav class='main' id='n1' role='navigation'>
 		<span><a href='layout.html'>Home</a></span>
-		<span><a href='quizzes.php'>Quizzes</a></span>
+		<span><a href='quizzes2.php'>Quizzes</a></span>
 		<span><a href='GalderaAnonimo.php'>Galderak ikusi</a></span>
 		<span><a href='credits.html'>Credits</a></span>
 		<span><a href='getUserInform.html'>Ikasleak bilatu</a></span>

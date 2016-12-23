@@ -17,7 +17,7 @@
   <div id='page-wrap'>
 	<header class='main' id='h1'>
       <span class="right"><a href="SignIn.php"><img src="irudiak/login.jpg" height="75" width="75"></a> </span>
-	  <span class="right"><a href="signUp.html"><img src="irudiak/signUp.png" height="75" width="75"></a> </span>
+	  <span class="right"><a href="signUp.html"><img src="irudiak/signup.png" height="75" width="75"></a> </span>
 	  	  	 <table align="right">
 		<tr>
 				<td>ANONIMOA</td>
